@@ -1,0 +1,9 @@
+{
+	"name": "adf-muhsin-demo-01",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c0c318c0-9195-4e43-ab4e-89810c75476a",
+		"tenantId": "99fb23b7-19ba-49d1-9e5b-b3473ee399e6"
+	}
+}
