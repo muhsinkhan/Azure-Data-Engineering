@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-muhsin-demo-01"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"onpremise_connectionString": {
+			"value": ""
+		},
+		"onpremisesqlserver_connectionString": {
+			"value": "Integrated Security=False;Data Source=DBS-MUHSIN-KHAN\\SQLEXPRESS;Initial Catalog=AdventureWorksLT2014;User ID=muhsin"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://muhsindatalakegen2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://muhsindatalakegen2.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-muhsin-demo-01.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://key-vault-demo-05.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
