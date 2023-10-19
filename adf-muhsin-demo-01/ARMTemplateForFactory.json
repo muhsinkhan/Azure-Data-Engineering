@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
-		"AzureDataLakeStorage2_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
-		},
 		"onpremise_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'onpremise'"
@@ -28,9 +24,9 @@
 			"type": "string",
 			"defaultValue": "https://muhsindatalakegen2.dfs.core.windows.net/"
 		},
-		"AzureDataLakeStorage2_properties_typeProperties_url": {
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
 			"type": "string",
-			"defaultValue": "https://muhsindatalakegen2.dfs.core.windows.net/"
+			"defaultValue": "1011-103120-nv2pq00h"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -388,7 +384,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage2",
+					"referenceName": "AzureDataLakeStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -403,7 +399,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage2')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
 		},
 		{
@@ -485,21 +481,28 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage2')]",
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureBlobFS",
+				"type": "AzureDatabricks",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
-					}
+					"domain": "https://adb-3845272702375822.2.azuredatabricks.net",
+					"accessToken": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault2",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "dbwtoken"
+					},
+					"existingClusterId": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault2')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1')]",

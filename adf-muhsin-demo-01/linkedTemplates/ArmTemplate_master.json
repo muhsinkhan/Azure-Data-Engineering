@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
-		"AzureDataLakeStorage2_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
-		},
 		"onpremise_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'onpremise'"
@@ -28,9 +24,9 @@
 			"type": "string",
 			"defaultValue": "https://muhsindatalakegen2.dfs.core.windows.net/"
 		},
-		"AzureDataLakeStorage2_properties_typeProperties_url": {
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
 			"type": "string",
-			"defaultValue": "https://muhsindatalakegen2.dfs.core.windows.net/"
+			"defaultValue": "1011-103120-nv2pq00h"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -70,9 +66,6 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
-					"AzureDataLakeStorage2_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
-					},
 					"onpremise_connectionString": {
 						"value": "[parameters('onpremise_connectionString')]"
 					},
@@ -82,14 +75,14 @@
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
-					"AzureDataLakeStorage2_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
-					},
 					"AzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
 					"AzureKeyVault2_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+					},
+					"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
 					}
 				}
 			},
